@@ -30,7 +30,7 @@ async def _test_service_parses_a_valid_gemini_response() -> None:
 
     async def handler(request: httpx.Request) -> httpx.Response:
         assert request.headers["x-goog-api-key"]
-        assert request.url.path.endswith("/models/gemini-2.5-flash:generateContent")
+        assert request.url.path.endswith("/models/gemini-3.5-flash-lite:generateContent")
         return httpx.Response(200, json=response_body)
 
     async with httpx.AsyncClient(transport=httpx.MockTransport(handler)) as client:
